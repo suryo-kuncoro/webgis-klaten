@@ -1,52 +1,55 @@
 .sidebar {
-  width: 320px;
-  background: #f9f9f9;
-  border-right: 1px solid #ddd;
-  padding: 16px;
-  font-family: 'Inter', sans-serif;
-  overflow-y: auto;
+  background: #f5f5f5;
+  border-right: 1px solid #ccc;
+  height: 100vh;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  position: relative;
 }
 
-.sidebar h2 {
-  font-size: 18px;
-  margin-bottom: 12px;
-  color: #333;
+.sidebar.open {
+  width: 280px;
+  padding: 12px;
+}
+
+.sidebar.closed {
+  width: 40px; /* hanya tombol toggle */
+  padding: 0;
+}
+
+.sidebar-content {
+  padding-top: 40px; /* beri ruang untuk tombol toggle */
 }
 
 .filter-group {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .filter-group label {
-  font-weight: 600;
   display: block;
+  font-weight: bold;
   margin-bottom: 4px;
-  color: #555;
 }
 
 .filter-group select,
 .filter-group input {
   width: 100%;
-  padding: 8px;
-  border-radius: 6px;
+  padding: 6px;
   border: 1px solid #ccc;
-  font-size: 14px;
-  background: #fff;
+  border-radius: 4px;
 }
 
 .autocomplete {
+  border: 1px solid #ddd;
   background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 6px;
   max-height: 150px;
   overflow-y: auto;
   margin-bottom: 12px;
 }
 
 .autocomplete-item {
-  padding: 8px;
+  padding: 6px;
   cursor: pointer;
-  transition: background 0.2s ease;
 }
 
 .autocomplete-item:hover {
@@ -54,12 +57,23 @@
 }
 
 .potensi-list {
-  margin-top: 8px;
-  max-height: 50vh;
+  max-height: calc(100vh - 300px);
   overflow-y: auto;
 }
 
 .no-data {
-  color: #777;
+  color: #888;
   font-style: italic;
+}
+
+/* Tombol toggle */
+.toggle-btn.left {
+  position: absolute;
+  right: 0;
+  top: 8px;
+  background: #0078d4;
+  color: white;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
 }
