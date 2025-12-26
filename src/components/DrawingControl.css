@@ -1,0 +1,26 @@
+.leaflet-draw-toolbar a {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+.leaflet-draw-toolbar a:hover {
+  background-color: var(--color-bg);
+}
+
+/* Warna ikon toolbar sesuai kategori */
+.leaflet-draw-toolbar .leaflet-draw-draw-polygon {
+  background-color: var(--color-pertanian);
+}
+.leaflet-draw-toolbar .leaflet-draw-draw-polyline {
+  background-color: var(--color-wisata);
+}
+.leaflet-draw-toolbar .leaflet-draw-draw-rectangle {
+  background-color: var(--color-kecamatan);
+}
+.leaflet-draw-toolbar .leaflet-draw-draw-circle {
+  background-color: var(--color-umkm);
+}
+.leaflet-draw-toolbar .leaflet-draw-draw-marker {
+  background-color: var(--color-desa);
+}

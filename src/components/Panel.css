@@ -1,0 +1,192 @@
+/* ========================================
+   SIDEBAR - Floating Panel Kiri
+   ======================================== */
+.sidebar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 280px;
+  max-height: calc(100vh - 40px);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 2000; /* lebih tinggi dari MapView */
+  overflow: hidden;
+  transform: translateX(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar.closed {
+  transform: translateX(calc(-100% - 20px));
+}
+
+.sidebar-content {
+  padding: 16px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+}
+
+/* Sidebar toggle button */
+.sidebar-toggle-btn {
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 60px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2100; /* tombol di atas panel */
+  transition: all 0.2s ease;
+  color: #666;
+  font-size: 18px;
+}
+
+.sidebar-toggle-btn:hover {
+  background: #f5f5f5;
+  right: -42px;
+}
+
+/* Animasi panah */
+.sidebar-toggle-btn svg {
+  transition: transform 0.3s ease;
+}
+.sidebar.closed .sidebar-toggle-btn svg {
+  transform: rotate(180deg);
+}
+
+/* ========================================
+   DETAIL PANEL - Floating Panel Kanan
+   ======================================== */
+.detail-panel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 320px;
+  max-height: calc(100vh - 40px);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 2000;
+  overflow: hidden;
+  transform: translateX(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.detail-panel.closed {
+  transform: translateX(calc(100% + 20px));
+}
+
+.detail-panel-content {
+  padding: 16px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+}
+
+/* Detail panel toggle button */
+.detail-toggle-btn {
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 60px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2100;
+  transition: all 0.2s ease;
+  color: #666;
+  font-size: 18px;
+}
+
+.detail-toggle-btn:hover {
+  background: #f5f5f5;
+  left: -42px;
+}
+
+/* Animasi panah */
+.detail-toggle-btn svg {
+  transition: transform 0.3s ease;
+}
+.detail-panel.closed .detail-toggle-btn svg {
+  transform: rotate(180deg);
+}
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
+.sidebar-content::-webkit-scrollbar,
+.detail-panel-content::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar-content::-webkit-scrollbar-track,
+.detail-panel-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-content::-webkit-scrollbar-thumb,
+.detail-panel-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+.sidebar-content::-webkit-scrollbar-thumb:hover,
+.detail-panel-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE
+   ======================================== */
+@media (max-width: 768px) {
+  .sidebar {
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 50vh;
+    border-radius: 16px 16px 0 0;
+    transform: translateY(0);
+  }
+  .sidebar.closed {
+    transform: translateY(100%); /* geser penuh ke bawah */
+  }
+  .sidebar-toggle-btn {
+    top: -30px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 30px;
+    border-radius: 8px 8px 0 0;
+    border: 1px solid #e5e5e5;
+    border-bottom: none;
+  }
+  .detail-panel {
+    width: calc(100vw - 40px);
+    max-width: 360px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 240px;
+  }
+  .detail-panel {
+    width: 280px;
+  }
+}

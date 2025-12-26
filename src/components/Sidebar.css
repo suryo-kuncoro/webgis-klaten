@@ -1,0 +1,65 @@
+.sidebar {
+  width: 320px;
+  background: #f9f9f9;
+  border-right: 1px solid #ddd;
+  padding: 16px;
+  font-family: 'Inter', sans-serif;
+  overflow-y: auto;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.filter-group {
+  margin-bottom: 16px;
+}
+
+.filter-group label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+  color: #555;
+}
+
+.filter-group select,
+.filter-group input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background: #fff;
+}
+
+.autocomplete {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-bottom: 12px;
+}
+
+.autocomplete-item {
+  padding: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.autocomplete-item:hover {
+  background: #f0f0f0;
+}
+
+.potensi-list {
+  margin-top: 8px;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.no-data {
+  color: #777;
+  font-style: italic;
+}
