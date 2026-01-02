@@ -10,7 +10,7 @@
   background: white;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  z-index: 2000; /* lebih tinggi dari MapView */
+  z-index: 2000;
   overflow: hidden;
   transform: translateX(0);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -26,7 +26,6 @@
   overflow-y: auto;
 }
 
-/* Sidebar toggle button */
 .sidebar-toggle-btn {
   position: absolute;
   top: 50%;
@@ -43,23 +42,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2100; /* tombol di atas panel */
+  z-index: 2100;
   transition: all 0.2s ease;
   color: #666;
-  font-size: 18px;
 }
 
 .sidebar-toggle-btn:hover {
   background: #f5f5f5;
   right: -42px;
-}
-
-/* Animasi panah */
-.sidebar-toggle-btn svg {
-  transition: transform 0.3s ease;
-}
-.sidebar.closed .sidebar-toggle-btn svg {
-  transform: rotate(180deg);
 }
 
 /* ========================================
@@ -90,7 +80,6 @@
   overflow-y: auto;
 }
 
-/* Detail panel toggle button */
 .detail-toggle-btn {
   position: absolute;
   top: 50%;
@@ -110,7 +99,6 @@
   z-index: 2100;
   transition: all 0.2s ease;
   color: #666;
-  font-size: 18px;
 }
 
 .detail-toggle-btn:hover {
@@ -118,38 +106,38 @@
   left: -42px;
 }
 
-/* Animasi panah */
-.detail-toggle-btn svg {
-  transition: transform 0.3s ease;
-}
-.detail-panel.closed .detail-toggle-btn svg {
-  transform: rotate(180deg);
+/* Leaflet Override */
+.leaflet-container {
+  z-index: 1 !important;
 }
 
-/* ========================================
-   SCROLLBAR STYLING
-   ======================================== */
+.leaflet-control-container {
+  z-index: 500 !important;
+}
+
+/* Scrollbar */
 .sidebar-content::-webkit-scrollbar,
 .detail-panel-content::-webkit-scrollbar {
   width: 6px;
 }
+
 .sidebar-content::-webkit-scrollbar-track,
 .detail-panel-content::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .sidebar-content::-webkit-scrollbar-thumb,
 .detail-panel-content::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.15);
   border-radius: 3px;
 }
+
 .sidebar-content::-webkit-scrollbar-thumb:hover,
 .detail-panel-content::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.25);
 }
 
-/* ========================================
-   RESPONSIVE - MOBILE
-   ======================================== */
+/* Responsive */
 @media (max-width: 768px) {
   .sidebar {
     bottom: 0;
@@ -162,7 +150,7 @@
     transform: translateY(0);
   }
   .sidebar.closed {
-    transform: translateY(100%); /* geser penuh ke bawah */
+    transform: translateY(100%);
   }
   .sidebar-toggle-btn {
     top: -30px;
@@ -178,15 +166,5 @@
   .detail-panel {
     width: calc(100vw - 40px);
     max-width: 360px;
-  }
-}
-
-/* Tablet */
-@media (max-width: 1024px) {
-  .sidebar {
-    width: 240px;
-  }
-  .detail-panel {
-    width: 280px;
   }
 }
